@@ -1,5 +1,7 @@
 package com.melayer.homeautomation.login
 
+import com.melayer.homeautomation.login.mvp.LoginContract
+import com.melayer.homeautomation.login.mvp.LoginPresenter
 import org.koin.dsl.module.applicationContext
 
 /**
@@ -7,6 +9,5 @@ import org.koin.dsl.module.applicationContext
  */
 
 val loginModule = applicationContext {
-
-
+    factory { _ -> LoginPresenter(get()) as LoginContract.Presenter }
 }

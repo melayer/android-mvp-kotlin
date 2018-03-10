@@ -13,6 +13,8 @@ class LoginPresenter(
     }
 
     override fun callLogin() {
+
+        // this method may call web service or perform the sqlite operation and calls particular method from LoginView i.e. LoginActivity in this case
         view.toDash()
     }
 }
