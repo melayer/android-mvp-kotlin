@@ -9,7 +9,7 @@ import org.koin.android.ext.android.inject
 
 class LoginActivity : AppCompatActivity(), LoginContract.View {
 
-    override val presenter : LoginContract.Presenter by inject(parameters = mapOf("" to this))
+    override val presenter : LoginContract.Presenter by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

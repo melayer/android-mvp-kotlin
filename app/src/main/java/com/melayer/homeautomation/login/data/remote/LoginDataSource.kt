@@ -7,14 +7,14 @@ import com.melayer.homeautomation.login.data.domain.Login
 import io.reactivex.Single
 
 /**
- * Created by aniruddha on 10/3/18.
+ * Created by aniruddha on 13/3/18.
  */
-interface LoginApi {
+interface LoginDataSource {
     fun login() : Single<Login>
     fun users() : Single<List<Login>>
 }
 
-class LoginWebServices : LoginApi {
+class LoginDataSourceImpl : LoginDataSource {
     override fun login(): Single<Login> {
         return "login".httpGet()
                 .rx_object(gsonDeserializerOf<Login>())
@@ -22,6 +22,6 @@ class LoginWebServices : LoginApi {
     }
 
     override fun users(): Single<List<Login>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return  Single.just(listOf())
     }
 }

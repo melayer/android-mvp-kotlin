@@ -1,5 +1,9 @@
 package com.melayer.homeautomation.login
 
+import com.melayer.homeautomation.login.data.remote.LoginDataSource
+import com.melayer.homeautomation.login.data.remote.LoginDataSourceImpl
+import com.melayer.homeautomation.login.data.remote.LoginRepository
+import com.melayer.homeautomation.login.data.remote.LoginRepositoryImpl
 import com.melayer.homeautomation.login.mvp.LoginContract
 import com.melayer.homeautomation.login.mvp.LoginPresenter
 import org.koin.dsl.module.applicationContext
@@ -9,5 +13,10 @@ import org.koin.dsl.module.applicationContext
  */
 
 val loginModule = applicationContext {
-    factory { _ -> LoginPresenter(get()) as LoginContract.Presenter }
+
+    bean {  LoginRepositoryImpl(get()) as LoginRepository }
+
+    bean { LoginDataSourceImpl() as LoginDataSource }
+
+    factory { _ -> LoginPresenter(get(), get()) as LoginContract.Presenter }
 }
