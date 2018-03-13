@@ -1,4 +1,4 @@
-package com.melayer.homeautomation.login.data.dtos
+package com.melayer.homeautomation.login.data.domain
 
 /**
  * Created by aniruddha on 9/3/18.
@@ -6,3 +6,4 @@ package com.melayer.homeautomation.login.data.dtos
 data class Login(
         val id : String  = "10"
 )
+
