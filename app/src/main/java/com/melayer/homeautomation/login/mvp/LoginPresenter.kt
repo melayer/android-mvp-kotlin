@@ -13,8 +13,13 @@ class LoginPresenter(
 ) : AbstractPresenter<LoginContract.View, LoginContract.Presenter>(view), LoginContract.Presenter {
 
     override fun callLogin() {
-        loginRepository.login().doOnSuccess {
+        lauch {
+            loginRepository.login().subscribe({
+                    view.toDash()
+                },{
 
+                 }
+            )
         }
     }
 }

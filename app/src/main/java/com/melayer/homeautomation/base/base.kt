@@ -24,7 +24,7 @@ open class AbstractPresenter<V : BaseView<P>, out P : BasePresenter<V>>(
 
     private val disposables = CompositeDisposable()
 
-    fun lauch( job : ()-> Disposable) {
+    fun lauch( job : () -> Disposable) {
         disposables.add(job())
     }
 

@@ -23,4 +23,9 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
     override fun toDash() {
         // this method is invoked from login presenter
     }
+
+    override fun onDestroy() {
+        presenter.stop()
+        super.onDestroy()
+    }
 }
